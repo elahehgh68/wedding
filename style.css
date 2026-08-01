@@ -5,107 +5,225 @@ box-sizing:border-box;
 }
 
 body{
-background:#f4efe8;
+
+background:#f6f1e9;
 display:flex;
 justify-content:center;
 align-items:center;
-min-height:100vh;
+height:100vh;
+overflow:hidden;
 font-family:tahoma;
-padding:20px;
+
 }
 
-#card{
+#scene{
+
 position:relative;
-max-width:520px;
-width:100%;
-cursor:pointer;
-overflow:hidden;
+width:360px;
+height:560px;
+
+}
+
+
+/* کارت */
+
+#card{
+
+position:absolute;
+
+left:50%;
+
+top:70px;
+
+width:280px;
+
+transform:translateX(-50%);
+
+transition:1s;
+
+z-index:1;
+
 }
 
 #coverImage{
+
 width:100%;
 display:block;
-border-radius:12px;
-box-shadow:0 15px 40px rgba(0,0,0,.25);
+border-radius:10px;
+box-shadow:0 20px 50px rgba(0,0,0,.25);
+
 }
 
 #info{
-position:absolute;
-left:0;
-right:0;
-bottom:0;
 
-background:rgba(255,255,255,.92);
+display:none;
 
-padding:25px;
+background:white;
 
-border-radius:20px 20px 12px 12px;
-
-transform:translateY(calc(100% - 70px));
-
-transition:0.6s ease;
+padding:30px;
 
 text-align:center;
-}
 
-#card.open #info{
-transform:translateY(0);
-}
+border-radius:12px;
 
-#card.open #info{
+margin-top:-8px;
 
-transform:translateY(0);
+line-height:2.2;
+
+box-shadow:0 10px 30px rgba(0,0,0,.15);
 
 }
 
 #info h1{
 
-font-size:30px;
-margin-bottom:12px;
-color:#22324b;
+font-size:34px;
+
+margin-bottom:10px;
 
 }
 
 #info h2{
 
-font-size:24px;
 margin-bottom:20px;
-color:#8b6b3d;
-
-}
-
-#info p{
-
-line-height:2;
-margin-bottom:12px;
-font-size:18px;
 
 }
 
 #info a{
 
 display:inline-block;
-margin-top:15px;
-padding:14px 26px;
-background:#22324b;
+
+margin-top:20px;
+
+padding:12px 28px;
+
+background:#233654;
+
 color:white;
+
 text-decoration:none;
+
 border-radius:40px;
 
 }
 
-@media(max-width:600px){
 
-#info h1{
-font-size:24px;
+/* پاکت */
+
+#envelope{
+
+position:absolute;
+
+bottom:0;
+
+left:50%;
+
+transform:translateX(-50%);
+
+width:320px;
+
+height:220px;
+
+z-index:5;
+
 }
 
-#info h2{
-font-size:20px;
+.back{
+
+position:absolute;
+
+width:100%;
+
+height:100%;
+
+background:#f4ebdc;
+
+border-radius:8px;
+
 }
 
-#info p{
-font-size:16px;
+.inside{
+
+position:absolute;
+
+top:0;
+
+width:100%;
+
+height:100%;
+
+background:url("https://www.transparenttextures.com/patterns/rice-paper-3.png");
+
+background-color:#8fb6ca;
+
+clip-path:polygon(0 100%,50% 0,100% 100%);
+
 }
+
+.front{
+
+position:absolute;
+
+bottom:0;
+
+width:100%;
+
+height:140px;
+
+background:#f7f0e4;
+
+clip-path:polygon(0 0,50% 75%,100% 0,100% 100%,0 100%);
+
+z-index:8;
+
+}
+
+.flap{
+
+position:absolute;
+
+top:0;
+
+width:100%;
+
+height:150px;
+
+background:#fbf6ed;
+
+transform-origin:top;
+
+transition:1s;
+
+clip-path:polygon(0 0,50% 100%,100% 0);
+
+z-index:9;
+
+}
+
+
+/* باز شدن */
+
+.open .flap{
+
+transform:rotateX(180deg);
+
+z-index:0;
+
+}
+
+.open #card{
+
+top:-150px;
+
+}
+
+.open #coverImage{
+
+display:none;
+
+}
+
+.open #info{
+
+display:block;
 
 }
