@@ -1,15 +1,5 @@
-const cover = document.getElementById("cover");
-const invite = document.getElementById("invite");
+const card = document.getElementById("card");
 
-cover.addEventListener("click", function () {
-
-    cover.style.display = "none";
-
-    invite.style.display = "block";
-
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
-
+card.addEventListener("click", function () {
+    card.classList.toggle("open");
 });
