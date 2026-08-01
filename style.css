@@ -18,6 +18,8 @@ padding:20px;
 position:relative;
 max-width:520px;
 width:100%;
+cursor:pointer;
+overflow:hidden;
 }
 
 #coverImage{
